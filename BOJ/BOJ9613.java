@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 
 public class BOJ9613 {
 	static int [] selected;
-	static int sum, n, numbers [];
-	
+	static int n, numbers [];
+	static long sum;
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();

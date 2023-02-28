@@ -28,22 +28,22 @@ public class Main {
                 list[first] = new Node(second, list[first]);
                 inCount[second]++;
             }
-            Queue<int []> queue = new LinkedList<>();
+            Queue<Integer> queue = new LinkedList<>();
             for (int i = 1; i <= N; i++){
                 if (inCount[i] == 0){
-                    queue.add(new int[] {i, 0, i}); //vertex, depth
+                    queue.add(i); //vertex, depth
                 }
             }
             int W = Integer.parseInt(br.readLine());
 
             while (!queue.isEmpty()){
-                int [] cur = queue.poll();
+                int cur = queue.poll();
 
-                Node curNode = list[cur[0]];
+                Node curNode = list[cur];
                 while (curNode != null){
-                    sum[curNode.vertex] = Math.max(sum[curNode.vertex], sum[cur[0]] + time[curNode.vertex]);
+                    sum[curNode.vertex] = Math.max(sum[curNode.vertex], sum[cur] + time[curNode.vertex]);
                     if(--inCount[curNode.vertex] == 0){
-                        queue.add(new int [] {curNode.vertex, cur[1] + 1, cur[2]});
+                        queue.add(curNode.vertex);
                     }
                     curNode = curNode.link;
                 }
